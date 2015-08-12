@@ -1,4 +1,4 @@
-<html>
+<html ng-app="gourmetApp">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Gourmet App Android">
@@ -27,8 +27,10 @@
 	<title>Gourmet App - Android</title>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="app.js"></script>
 </head>
-<body>
+<body ng-controller="appCtrl">
 	<div id="header">
 		<div class="logo-container"><img class="logo" src="images/login_image.png"/></div>
 	</div>
@@ -39,30 +41,19 @@
 
 	<div id="content">
 		<div id="download-button">
-			<a href="https://github.com/javierugarte/GourmetApp-android/releases/download/v1.1.0/GourmetApp-v1.1.0.apk"><span class="download-title">Download v1.1.0</span></a>
+			<a href="{{gourmet.downloadUrl}}"><span class="download-title">Download {{gourmet.tagname}}</span></a>
 		</div>
 		<div id="changelog">
 			<span class="changelog-title">Changelog</span>
-			<div class="changelog-detail">
-				<span class="changelog-version">v1.1.0</span>
+			<div class="changelog-detail" ng-repeat="release in gourmet.releases">
+				<span class="changelog-version" >{{release.tagname}}</span>
 				<ul>
-					<li>Login doesn't require an external webservice</li>
-					<li>Notify you when a new version</li>
-					<li>Added unit test</li>
-				</ul>
-				<span class="changelog-version">v1.0.1</span>
-				<ul>
-					<li>Spanish translation</li>
-					<li>Exit login when the user has changed the password</li>
-					<li>Fixed fonts of EditText</li>
-				</ul>
-				<span class="changelog-version">v1.0.0</span>
-				<ul>
-					<li>Initial version</li>
+					<li ng-repeat="change in release.changes">
+						{{change.name}}
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
