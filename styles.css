@@ -19,7 +19,7 @@ text-decoration: none;
 body {
 	font-family: 'Roboto', sans-serif;
 	background-color: #FF5722;
-	color: black;
+	color: white;
 }
 
 #header {
@@ -99,8 +99,7 @@ body {
 #changelog ul {
 	margin-left: 30px;
 	margin-top: 5px;
-	margin-bottom: 20px;	
-	list-style-image: url('images/disc.gif');
+	margin-bottom: 20px;
 }
 
 #changelog li {
