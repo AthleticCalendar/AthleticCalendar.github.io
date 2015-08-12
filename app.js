@@ -27,6 +27,7 @@ var releases = [
 
 var gourmet = {
 	tagname: releases[0].tagname,
+  available: '(Android 4.1 or above)',
 	downloadUrl: "https://github.com/javierugarte/GourmetApp-android/releases/download/v1.1.0/GourmetApp-v1.1.0.apk",
 	releases: releases
 };

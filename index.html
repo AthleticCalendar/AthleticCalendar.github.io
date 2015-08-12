@@ -42,7 +42,9 @@
 	<div id="content">
 		<div id="download-button">
 			<a href="{{gourmet.downloadUrl}}"><span class="download-title">Download {{gourmet.tagname}}</span></a>
+			<span class="available"></br>{{gourmet.available}}</span>
 		</div>
+
 		<div id="changelog">
 			<span class="changelog-title">Changelog</span>
 			<div class="changelog-detail" ng-repeat="release in gourmet.releases">
