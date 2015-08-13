@@ -27,7 +27,8 @@ app.controller("appCtrl", function($scope, $http) {
         tagName: 'Download ' + releases[0].tagName,
         available: '(Android 4.1 or above)',
         projectUrl: 'http://github.com/javierugarte/GourmetApp-Android',
-        footerText: 'Developed by Javier González. You can see the application code and contribute on github.',
+        footerText: 'Developed by Javier González. You can see the application code and contribute on ',
+        footerGitHub: 'GitHub.',
         downloadUrl: releases[0].downloadUrl,
         releases: releases
       };
