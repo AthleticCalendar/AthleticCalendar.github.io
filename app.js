@@ -1,33 +1,38 @@
-var app = angular.module("gourmetApp", []);
+var app = angular.module("app", []);
 
-app.controller("appCtrl", function($scope) {
-    $scope.gourmet = gourmet;
+var $URL = "https://api.github.com/repos/javierugarte/GourmetApp-android/releases";
+
+
+app.controller("appCtrl", function($scope, $http) {
     $scope.download  = function() {};
+
+    $http.get($URL)
+    .success(function(data) {
+      json = angular.fromJson(data);   
+
+      var releases = [];
+      for( i = 0; i < json.length; i++) {
+        var release = {};
+        release.tagname = json[i].tag_name;
+        release.changes = json[i].body;
+        release.changes = release.changes.split('* ');
+        release.changes.shift();
+        release.downloadUrl = "";    
+        if (json[i].assets > 0 && json[i].assets[0].browser_download_url != "undefined") {
+          release.downloadUrl = json[i].assets[0].browser_download_url;
+        }
+        releases.push(release);
+      }
+
+      var gourmet = {
+        appname: "Gourmet App - Android",
+        tagname: "Download " + releases[0].tagname,
+        available: '(Android 4.1 or above)',
+        downloadUrl: releases[0].downloadUrl,
+        releases: releases
+      };
+
+      $scope.gourmet = gourmet;
+    });
+ 
 });
-
-var releases = [
-  {
-  	tagname:'v1.1.0', 
-  	changes:[
-  	{name:"Login doesn't require an external webservice"},
-  	{name:"Notify you when a new version"},
-  	{name:"Added unit test"}]
-  },
-  {tagname:'v1.0.1', 
-  	changes:[
-  	{name:"Spanish translation"},
-  	{name:"Exit login when the user has changed the password"},
-  	{name:"Fixed fonts of EditText"}]
-  },
-  {tagname:'v1.0.0', 
-  	changes:[
-  	{name:"Initial version"}]
-  }
-];
-
-var gourmet = {
-	tagname: releases[0].tagname,
-  available: '(Android 4.1 or above)',
-	downloadUrl: "https://github.com/javierugarte/GourmetApp-android/releases/download/v1.1.0/GourmetApp-v1.1.0.apk",
-	releases: releases
-};

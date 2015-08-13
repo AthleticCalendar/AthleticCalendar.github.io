@@ -52,9 +52,11 @@ body {
 }
 
 #content {
-	margin-top: 70px;
 	width: 100%;
+	max-width: 550px;
 	height: auto;
+	margin: 0 auto;
+	margin-top: 70px;
 }
 
 #download-button {

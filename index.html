@@ -1,4 +1,4 @@
-<html ng-app="gourmetApp">
+<html ng-app="app" ng-controller="appCtrl">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Gourmet App Android">
@@ -24,13 +24,13 @@
 <meta name="theme-color" content="#FF5722">
 
 <head>
-	<title>Gourmet App - Android</title>
+	<title>{{gourmet.appname}}</title>
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 	<script src="app.js"></script>
 </head>
-<body ng-controller="appCtrl">
+<body>
 	<div id="header">
 		<div class="logo-container"><img class="logo" src="images/login_image.png"/></div>
 	</div>
@@ -41,7 +41,7 @@
 
 	<div id="content">
 		<div id="download-button">
-			<a href="{{gourmet.downloadUrl}}"><span class="download-title">Download {{gourmet.tagname}}</span></a>
+			<a href="{{gourmet.downloadUrl}}"><span class="download-title">{{gourmet.tagname}}</span></a>
 			<span class="available"></br>{{gourmet.available}}</span>
 		</div>
 
@@ -51,7 +51,7 @@
 				<span class="changelog-version" >{{release.tagname}}</span>
 				<ul>
 					<li ng-repeat="change in release.changes">
-						{{change.name}}
+						{{change}}
 					</li>
 				</ul>
 			</div>
