@@ -15,8 +15,8 @@ app.controller("appCtrl", function($scope, $http) {
         release.changes = json[i].body;
         release.changes = release.changes.split('* ');
         release.changes.shift();
-        release.downloadUrl = "";    
-        if (json[i].assets > 0 && json[i].assets[0].browser_download_url != "undefined") {
+        release.downloadUrl = "";
+        if (json[i].assets != null && json[i].assets[0].browser_download_url != "undefined") {
           release.downloadUrl = json[i].assets[0].browser_download_url;
         }
         releases.push(release);
