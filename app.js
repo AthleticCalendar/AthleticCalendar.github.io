@@ -4,8 +4,6 @@ var $URL = "https://api.github.com/repos/javierugarte/GourmetApp-android/release
 
 
 app.controller("appCtrl", function($scope, $http) {
-    $scope.download  = function() {};
-
     $http.get($URL)
     .success(function(data) {
       json = angular.fromJson(data);   
@@ -13,7 +11,7 @@ app.controller("appCtrl", function($scope, $http) {
       var releases = [];
       for( i = 0; i < json.length; i++) {
         var release = {};
-        release.tagname = json[i].tag_name;
+        release.tagName = json[i].tag_name;
         release.changes = json[i].body;
         release.changes = release.changes.split('* ');
         release.changes.shift();
@@ -25,9 +23,11 @@ app.controller("appCtrl", function($scope, $http) {
       }
 
       var gourmet = {
-        appname: "Gourmet App - Android",
-        tagname: "Download " + releases[0].tagname,
+        projectName: 'Gourmet App - Android',
+        tagName: 'Download ' + releases[0].tagName,
         available: '(Android 4.1 or above)',
+        projectUrl: 'http://github.com/javierugarte/GourmetApp-Android',
+        footerText: 'Developed by Javier González. You can see the application code and contribute on github.',
         downloadUrl: releases[0].downloadUrl,
         releases: releases
       };
