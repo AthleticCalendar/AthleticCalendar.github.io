@@ -69,6 +69,10 @@ body {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 
+	-moz-box-shadow: 1px 1px 3px #353535;
+	-webkit-box-shadow: 1px 1px 3px #353535;
+	box-shadow: 1px 1px 3px #353535;
+
 	vertical-align: middle;
 	line-height: 50px; 
 
