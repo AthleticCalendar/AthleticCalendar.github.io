@@ -23,9 +23,9 @@ app.controller("appCtrl", function($scope, $http) {
       }
 
       var gourmet = {
-        projectName: 'Gourmet App - Android',
+        projectName: 'Gourmet - Android',
         tagName: 'Download ' + releases[0].tagName,
-        available: '(Android 4.1 or above)',
+        available: '(Android 4.0.4 or above)',
         projectUrl: 'http://github.com/javierugarte/GourmetApp-Android',
         footerText: 'Developed by Javier González. You can see the application code and contribute on ',
         footerGitHub: 'GitHub.',
