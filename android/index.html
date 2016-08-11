@@ -1,0 +1,78 @@
+<html ng-app="app" ng-controller="appCtrl">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gourmet App Android">
+<meta name="author" content="Javier González">
+<meta name="keywords" lang="en" content="Gourmet,Cheque,github,javier,ugarte">
+
+<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+<link rel="manifest" href="images/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#FF5722">
+
+<head>
+	<title>Gourmet - Android</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div id="header">
+		<div class="logo-container"><img class="logo" src="images/login_image.png"/></div>
+	</div>
+
+	<div id="icon">
+		<img class="icon" src="images/icon.png"/>
+	</div>
+
+	<div id="content">
+		<div id="download-button">
+			<a href="{{gourmet.downloadUrl}}"><span class="download-title">{{gourmet.tagName}}</span></a>
+			<span class="available"></br>{{gourmet.available}}</span>
+		</div>
+
+		<div id="changelog">
+			<span class="changelog-title">Changelog</span>
+			<div class="changelog-detail" ng-repeat="release in gourmet.releases">
+				<span class="changelog-version" >{{release.tagName}}</span>
+				<ul>
+					<li ng-repeat="change in release.changes">
+						{{change}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>{{gourmet.footerText}}<span class="strong">{{gourmet.footerGitHub}}</span></p>
+		<a href="{{gourmet.projectUrl}}" target="_blank">
+			<img src="images/github_black.png" />
+		</a>
+	</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66324003-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
