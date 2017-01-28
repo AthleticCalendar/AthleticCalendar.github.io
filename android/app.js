@@ -1,6 +1,6 @@
 var app = angular.module("app", []);
 
-var $URL = "https://api.github.com/repos/javierugarte/GourmetApp-android/releases";
+var $URL = "https://api.github.com/repos/GourmetApp/GourmetApp-android/releases";
 
 
 app.controller("appCtrl", function($scope, $http) {
@@ -13,7 +13,7 @@ app.controller("appCtrl", function($scope, $http) {
         var release = {};
         release.tagName = json[i].tag_name;
         release.changes = json[i].body;
-        release.changes = release.changes.split('* ');
+        release.changes = release.changes.split('- ');
         release.changes.shift();
         release.downloadUrl = "";
         if (json[i].assets != null && json[i].assets[0].browser_download_url != "undefined") {
@@ -26,7 +26,7 @@ app.controller("appCtrl", function($scope, $http) {
         projectName: 'Gourmet - Android',
         tagName: 'Download ' + releases[0].tagName,
         available: '(Android 4.0.4 or above)',
-        projectUrl: 'http://github.com/javierugarte/GourmetApp-Android',
+        projectUrl: 'https://github.com/GourmetApp/GourmetApp-Android',
         footerText: 'Developed by Javier González. You can see the application code and contribute on ',
         footerGitHub: 'GitHub.',
         downloadUrl: releases[0].downloadUrl,
