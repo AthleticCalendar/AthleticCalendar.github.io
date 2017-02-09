@@ -1,9 +1,9 @@
 <html ng-app="app" ng-controller="appCtrl">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Gourmet App Android">
+<meta name="description" content="Athletic Calendar Android">
 <meta name="author" content="Javier González">
-<meta name="keywords" lang="en" content="Gourmet,Cheque,github,javier,ugarte">
+<meta name="keywords" lang="en" content="athletic,calendar,googlecalendar,javier,ugarte">
 
 <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
@@ -24,7 +24,7 @@
 <meta name="theme-color" content="#FF5722">
 
 <head>
-	<title>Gourmet - Android</title>
+	<title>Athletic Calendar - Android</title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,500' rel='stylesheet' type='text/css'>
 	<link href="styles.css" rel="stylesheet" type="text/css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -32,7 +32,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo-container"><img class="logo" src="images/login_image.png"/></div>
+		<div class="logo-container">Athletic Calendar</div>
 	</div>
 
 	<div id="icon">
@@ -41,13 +41,13 @@
 
 	<div id="content">
 		<div id="download-button">
-			<a href="{{gourmet.downloadUrl}}"><span class="download-title">{{gourmet.tagName}}</span></a>
-			<span class="available"></br>{{gourmet.available}}</span>
+			<a href="{{app.downloadUrl}}"><span class="download-title">{{app.tagName}}</span></a>
+			<span class="available"></br>{{app.available}}</span>
 		</div>
 
 		<div id="changelog">
 			<span class="changelog-title">Changelog</span>
-			<div class="changelog-detail" ng-repeat="release in gourmet.releases">
+			<div class="changelog-detail" ng-repeat="release in app.releases">
 				<span class="changelog-version" >{{release.tagName}}</span>
 				<ul>
 					<li ng-repeat="change in release.changes">
@@ -59,8 +59,8 @@
 	</div>
 
 	<div id="footer">
-		<p>{{gourmet.footerText}}<span class="strong">{{gourmet.footerGitHub}}</span></p>
-		<a href="{{gourmet.projectUrl}}" target="_blank">
+		<p>{{app.footerText}}<span class="strong">{{app.footerGitHub}}</span></p>
+		<a href="{{app.projectUrl}}" target="_blank">
 			<img src="images/github_black.png" />
 		</a>
 	</div>

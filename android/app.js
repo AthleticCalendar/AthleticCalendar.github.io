@@ -1,6 +1,6 @@
 var app = angular.module("app", []);
 
-var $URL = "https://api.github.com/repos/GourmetApp/GourmetApp-android/releases";
+var $URL = "https://api.github.com/repos/AthleticCalendar/AthleticCalendar-android/releases";
 
 
 app.controller("appCtrl", function($scope, $http) {
@@ -16,24 +16,24 @@ app.controller("appCtrl", function($scope, $http) {
         release.changes = release.changes.split('- ');
         release.changes.shift();
         release.downloadUrl = "";
-        if (json[i].assets != null && json[i].assets[0].browser_download_url != "undefined") {
+        if (json[i].assets != null && json[i].assets[0] != null && json[i].assets[0].browser_download_url != "undefined") {
           release.downloadUrl = json[i].assets[0].browser_download_url;
         }
         releases.push(release);
       }
 
-      var gourmet = {
-        projectName: 'Gourmet - Android',
+      var app = {
+        projectName: 'Athletic Calendar - Android',
         tagName: 'Download ' + releases[0].tagName,
         available: '(Android 4.0.4 or above)',
-        projectUrl: 'https://github.com/GourmetApp/GourmetApp-Android',
+        projectUrl: 'https://github.com/AthleticCalendar/AthleticCalendar-Android',
         footerText: 'Developed by Javier González. You can see the application code and contribute on ',
         footerGitHub: 'GitHub.',
         downloadUrl: releases[0].downloadUrl,
         releases: releases
       };
 
-      $scope.gourmet = gourmet;
+      $scope.app = app;
     });
  
 });
